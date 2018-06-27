@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pickles.Infrastructure.Scheduler", "Pickles.Infrastructure.Scheduler\Pickles.Infrastructure.Scheduler.csproj", "{0D737B24-E784-47E9-8153-1636FB1050F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pickles.Infrastructure.Logging", "Pickles.Infrastructure.Logging\Pickles.Infrastructure.Logging.csproj", "{4600E86D-6D44-412F-9B95-7E9CB452E975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pickles.Infrastructure.Common", "Pickles.Infrastructure.Common\Pickles.Infrastructure.Common.csproj", "{C287A0C2-E8DD-4740-98A3-1CA56437A866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pickles.Infrastructure.UploadJob", "Pickles.Infrastructure.UploadJob\Pickles.Infrastructure.UploadJob.csproj", "{F0FBB938-F249-4AE5-81DD-66B64672606D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atlas", "Atlas\Atlas.csproj", "{381883F1-9839-4E16-8E2E-4F9A590C0690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pickles.Infrastructure.Data", "Pickles.Infrastructure.Data\Pickles.Infrastructure.Data.csproj", "{336A6BE8-7A09-4241-BA88-0DC8D99292D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D737B24-E784-47E9-8153-1636FB1050F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D737B24-E784-47E9-8153-1636FB1050F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D737B24-E784-47E9-8153-1636FB1050F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D737B24-E784-47E9-8153-1636FB1050F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4600E86D-6D44-412F-9B95-7E9CB452E975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4600E86D-6D44-412F-9B95-7E9CB452E975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4600E86D-6D44-412F-9B95-7E9CB452E975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4600E86D-6D44-412F-9B95-7E9CB452E975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C287A0C2-E8DD-4740-98A3-1CA56437A866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C287A0C2-E8DD-4740-98A3-1CA56437A866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C287A0C2-E8DD-4740-98A3-1CA56437A866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C287A0C2-E8DD-4740-98A3-1CA56437A866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0FBB938-F249-4AE5-81DD-66B64672606D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0FBB938-F249-4AE5-81DD-66B64672606D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0FBB938-F249-4AE5-81DD-66B64672606D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0FBB938-F249-4AE5-81DD-66B64672606D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381883F1-9839-4E16-8E2E-4F9A590C0690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381883F1-9839-4E16-8E2E-4F9A590C0690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381883F1-9839-4E16-8E2E-4F9A590C0690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381883F1-9839-4E16-8E2E-4F9A590C0690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336A6BE8-7A09-4241-BA88-0DC8D99292D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336A6BE8-7A09-4241-BA88-0DC8D99292D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336A6BE8-7A09-4241-BA88-0DC8D99292D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336A6BE8-7A09-4241-BA88-0DC8D99292D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" version="2.0">
+  <schedule>
+    <job>
+      <name>PhotoBoothUpload</name>
+      <group>PhotoBoothUploadGroup</group>
+      <description>Upload images from Photo Booth</description>
+      <job-type>Pickles.Infrastructure.UploadJob.UploadFile, Pickles.Infrastructure.UploadJob</job-type>
+    </job>
+    <trigger>
+      <cron>
+        <name>PhotoBoothUploadTrigger</name>
+        <group>PhotoBoothUploadTriggerGroup</group>
+        <job-name>PhotoBoothUpload</job-name>
+        <job-group>PhotoBoothUploadGroup</job-group>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <cron-expression>0 0/1 * 1/1 * ? *</cron-expression>
+      </cron>
+    </trigger>
+  </schedule>
+  <!--<schedule>
+    <job>
+      <name>PhotoBoothUpload2</name>
+      <group>PhotoBoothUploadGroup2</group>
+      <description>Upload images from Photo Booth2</description>
+      <job-type>Pickles.Infrastructure.UploadJob.UploadFile, Pickles.Infrastructure.UploadJob</job-type>
+    </job>
+    <trigger>
+      <cron>
+        <name>PhotoBoothUploadTrigger2</name>
+        <group>PhotoBoothUploadTriggerGroup2</group>
+        <job-name>PhotoBoothUpload2</job-name>
+        <job-group>PhotoBoothUploadGroup2</job-group>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <cron-expression>0 0/3 * 1/1 * ? *</cron-expression>
+      </cron>
+    </trigger>
+  </schedule>-->
+</job-scheduling-data>

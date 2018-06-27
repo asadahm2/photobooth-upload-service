@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://pas_ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://pas_ws" targetNamespace="http://pas_ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="processmessageRequest">
+    <wsdl:part name="xml_dataxml_data" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="servslifeResponse">
+    <wsdl:part name="servslifeReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getdataResponse">
+    <wsdl:part name="getdataReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="servslifeRequest">
+    <wsdl:part name="as_xml_dataas_xml_data" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="processmessageResponse">
+    <wsdl:part name="processmessageReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="pingReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="pingRequest" />
+  <wsdl:message name="itemmanagementserviceRequest">
+    <wsdl:part name="as_xml_dataas_xml_data" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="itemmanagementserviceResponse">
+    <wsdl:part name="itemmanagementserviceReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getdataRequest">
+    <wsdl:part name="xml_parametersxml_parameters" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="n_ws_pas_interface">
+    <wsdl:operation name="ping">
+      <wsdl:input name="pingRequest" message="impl:pingRequest" />
+      <wsdl:output name="pingResponse" message="impl:pingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="processmessage" parameterOrder="xml_dataxml_data">
+      <wsdl:input name="processmessageRequest" message="impl:processmessageRequest" />
+      <wsdl:output name="processmessageResponse" message="impl:processmessageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getdata" parameterOrder="xml_parametersxml_parameters">
+      <wsdl:input name="getdataRequest" message="impl:getdataRequest" />
+      <wsdl:output name="getdataResponse" message="impl:getdataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="itemmanagementservice" parameterOrder="as_xml_dataas_xml_data">
+      <wsdl:input name="itemmanagementserviceRequest" message="impl:itemmanagementserviceRequest" />
+      <wsdl:output name="itemmanagementserviceResponse" message="impl:itemmanagementserviceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="servslife" parameterOrder="as_xml_dataas_xml_data">
+      <wsdl:input name="servslifeRequest" message="impl:servslifeRequest" />
+      <wsdl:output name="servslifeResponse" message="impl:servslifeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="n_ws_pas_interfaceSoapBinding" type="impl:n_ws_pas_interface">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="ping">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="pingRequest">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="pingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processmessage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="processmessageRequest">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="processmessageResponse">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getdata">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getdataRequest">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getdataResponse">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="itemmanagementservice">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="itemmanagementserviceRequest">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="itemmanagementserviceResponse">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="servslife">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="servslifeRequest">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="servslifeResponse">
+        <wsdlsoap:body use="encoded" namespace="http://pas_ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="n_ws_pas_interface">
+    <wsdl:port name="n_ws_pas_interface" binding="impl:n_ws_pas_interfaceSoapBinding">
+      <wsdlsoap:address location="http://192.168.1.83:8011/pas_ws/n_ws_pas_interface" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

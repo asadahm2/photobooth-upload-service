@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="imageuploaderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="UploadTracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UploadEndPoint" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="StartTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="EndTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SourceMachineName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileCreationTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="IsRetake" Type="bit" />
+        </EntityType>
+        <Function Name="GetUploadedFiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sourceMachineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="filePath" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="imageuploaderModelStoreContainer">
+          <EntitySet Name="UploadTracking" EntityType="Self.UploadTracking" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="imageuploaderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="imageuploaderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UploadTrackings" EntityType="imageuploaderModel.UploadTracking" />
+          <FunctionImport Name="GetUploadedFiles" ReturnType="Collection(imageuploaderModel.GetUploadedFiles_Result)">
+            <Parameter Name="sourceMachineName" Mode="In" Type="String" />
+            <Parameter Name="filePath" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="UploadTracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UploadEndPoint" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StartTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SourceMachineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileCreationTimeUtc" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="IsRetake" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="GetUploadedFiles_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="UploadEndPoint" Nullable="false" MaxLength="500" />
+          <Property Type="DateTime" Name="StartTimeUtc" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="EndTimeUtc" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ErrorMessage" Nullable="true" />
+          <Property Type="String" Name="MachineName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SourceMachineName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FileCreationTimeUtc" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="imageuploaderModelStoreContainer" CdmEntityContainer="imageuploaderEntities">
+          <EntitySetMapping Name="UploadTrackings">
+            <EntityTypeMapping TypeName="imageuploaderModel.UploadTracking">
+              <MappingFragment StoreEntitySet="UploadTracking">
+                <ScalarProperty Name="IsRetake" ColumnName="IsRetake" />
+                <ScalarProperty Name="FileCreationTimeUtc" ColumnName="FileCreationTimeUtc" />
+                <ScalarProperty Name="SourceMachineName" ColumnName="SourceMachineName" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EndTimeUtc" ColumnName="EndTimeUtc" />
+                <ScalarProperty Name="StartTimeUtc" ColumnName="StartTimeUtc" />
+                <ScalarProperty Name="UploadEndPoint" ColumnName="UploadEndPoint" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetUploadedFiles" FunctionName="imageuploaderModel.Store.GetUploadedFiles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="imageuploaderModel.GetUploadedFiles_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="UploadEndPoint" ColumnName="UploadEndPoint" />
+                <ScalarProperty Name="StartTimeUtc" ColumnName="StartTimeUtc" />
+                <ScalarProperty Name="EndTimeUtc" ColumnName="EndTimeUtc" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="SourceMachineName" ColumnName="SourceMachineName" />
+                <ScalarProperty Name="FileCreationTimeUtc" ColumnName="FileCreationTimeUtc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
